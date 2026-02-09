@@ -1,0 +1,60 @@
+/* App-specific styles */
+
+/* Ensure smooth scrolling works with Lenis */
+html {
+  scroll-behavior: auto !important;
+}
+
+/* Main content transitions */
+main {
+  will-change: opacity;
+}
+
+/* Canvas optimizations */
+canvas {
+  display: block;
+}
+
+/* Ensure sections stack properly */
+section {
+  position: relative;
+}
+
+/* Fix for mobile viewport height */
+@supports (height: 100dvh) {
+  .h-screen {
+    height: 100dvh;
+  }
+}
+
+/* Performance optimizations */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+  }
+}
